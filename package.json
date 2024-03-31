@@ -1,0 +1,38 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000 --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start --port 3000 --hostname 0.0.0.0",
+    "compile": "graphql-codegen --require dotenv/config --config codegen.ts dotenv_config_path=.env.local",
+    "lint": "next lint",
+    "fix:lint": "next lint --fix",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@apollo/client": "^3.9.9",
+    "@supabase/supabase-js": "^2.41.1",
+    "graphql": "^16.8.1",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.2.5",
+    "@types/node": "^20.11.6",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-tailwindcss": "^3.15.1",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.3"
+  }
+}
