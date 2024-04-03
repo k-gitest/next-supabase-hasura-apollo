@@ -17,4 +17,4 @@ const AppHeader = ({ isSignedIn }: { isSignedIn: boolean }) => {
   );
 };
 
-export default AppHeader
+export default AppHeader;

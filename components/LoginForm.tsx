@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { supabase } from '../constants';
+import { Button } from './ui/button';
 
 const LoginForm = () => {
   const sendMagicLink = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -27,8 +28,10 @@ const LoginForm = () => {
         placeholder="Email"
       />
       <button type="submit" className="rounded bg-green-400 px-4 py-1 text-lg text-black">
-        Send Magic Link
+        tailwind
       </button>
+      <Button variant="secondary">shadcnui</Button>
+      <button className="btn hover:bg-success hover:border-success">daisyui</button>
     </form>
   );
 };

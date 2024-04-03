@@ -13,10 +13,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n    query TasksQuery($orderBy: [tasksOrderBy!]) {\n        tasksCollection(orderBy: $orderBy) {\n            edges {\n            node {\n                title\n                is_completed\n                id\n            }\n            }\n        }\n    }\n": types.TasksQueryDocument,
-    "\n    mutation TaskMutation($objects: [tasksInsertInput!]!) {\n        insertIntotasksCollection(objects: $objects) {\n            records {\n            title\n            }\n        }\n    }\n": types.TaskMutationDocument,
-    "\n    mutation Mutation($set: tasksUpdateInput!, $filter: tasksFilter) {\n        updatetasksCollection(set: $set, filter: $filter) {\n            records {\n                is_completed\n            }\n        }\n    }\n": types.MutationDocument,
-    "\n  query HogesQuery($orderBy: [hogesOrderBy!]) {\n        hogesCollection(orderBy: $orderBy) {\n            edges {\n            node {\n                body\n                created_at\n                id\n            }\n            }\n        }\n    }\n": types.HogesQueryDocument,
+    "\nquery hogesQuery {\n  hoges {\n    id\n    body\n    created_at\n    uid\n  }\n}\n": types.HogesQueryDocument,
+    "\n    mutation hogesInsertMutation($objects: [hoges_insert_input!] = {}) {\n  insert_hoges(objects: $objects) {\n    affected_rows\n  }\n}\n": types.HogesInsertMutationDocument,
+    "\nmutation hogesUpdateMutation($_set: hoges_set_input = {}, $_eq: bigint = \"\") {\n  update_hoges(where: {id: {_eq: $_eq}}, _set: $_set) {\n    affected_rows\n  }\n}\n": types.HogesUpdateMutationDocument,
+    "\nmutation hogesDeleteMutation($_eq: bigint = \"\") {\n  delete_hoges(where: {id: {_eq: $_eq}}) {\n    affected_rows\n    returning {\n      id\n      created_at\n      body\n    }\n  }\n}\n": types.HogesDeleteMutationDocument,
 };
 
 /**
@@ -36,19 +36,19 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n    query TasksQuery($orderBy: [tasksOrderBy!]) {\n        tasksCollection(orderBy: $orderBy) {\n            edges {\n            node {\n                title\n                is_completed\n                id\n            }\n            }\n        }\n    }\n"): (typeof documents)["\n    query TasksQuery($orderBy: [tasksOrderBy!]) {\n        tasksCollection(orderBy: $orderBy) {\n            edges {\n            node {\n                title\n                is_completed\n                id\n            }\n            }\n        }\n    }\n"];
+export function gql(source: "\nquery hogesQuery {\n  hoges {\n    id\n    body\n    created_at\n    uid\n  }\n}\n"): (typeof documents)["\nquery hogesQuery {\n  hoges {\n    id\n    body\n    created_at\n    uid\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n    mutation TaskMutation($objects: [tasksInsertInput!]!) {\n        insertIntotasksCollection(objects: $objects) {\n            records {\n            title\n            }\n        }\n    }\n"): (typeof documents)["\n    mutation TaskMutation($objects: [tasksInsertInput!]!) {\n        insertIntotasksCollection(objects: $objects) {\n            records {\n            title\n            }\n        }\n    }\n"];
+export function gql(source: "\n    mutation hogesInsertMutation($objects: [hoges_insert_input!] = {}) {\n  insert_hoges(objects: $objects) {\n    affected_rows\n  }\n}\n"): (typeof documents)["\n    mutation hogesInsertMutation($objects: [hoges_insert_input!] = {}) {\n  insert_hoges(objects: $objects) {\n    affected_rows\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n    mutation Mutation($set: tasksUpdateInput!, $filter: tasksFilter) {\n        updatetasksCollection(set: $set, filter: $filter) {\n            records {\n                is_completed\n            }\n        }\n    }\n"): (typeof documents)["\n    mutation Mutation($set: tasksUpdateInput!, $filter: tasksFilter) {\n        updatetasksCollection(set: $set, filter: $filter) {\n            records {\n                is_completed\n            }\n        }\n    }\n"];
+export function gql(source: "\nmutation hogesUpdateMutation($_set: hoges_set_input = {}, $_eq: bigint = \"\") {\n  update_hoges(where: {id: {_eq: $_eq}}, _set: $_set) {\n    affected_rows\n  }\n}\n"): (typeof documents)["\nmutation hogesUpdateMutation($_set: hoges_set_input = {}, $_eq: bigint = \"\") {\n  update_hoges(where: {id: {_eq: $_eq}}, _set: $_set) {\n    affected_rows\n  }\n}\n"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query HogesQuery($orderBy: [hogesOrderBy!]) {\n        hogesCollection(orderBy: $orderBy) {\n            edges {\n            node {\n                body\n                created_at\n                id\n            }\n            }\n        }\n    }\n"): (typeof documents)["\n  query HogesQuery($orderBy: [hogesOrderBy!]) {\n        hogesCollection(orderBy: $orderBy) {\n            edges {\n            node {\n                body\n                created_at\n                id\n            }\n            }\n        }\n    }\n"];
+export function gql(source: "\nmutation hogesDeleteMutation($_eq: bigint = \"\") {\n  delete_hoges(where: {id: {_eq: $_eq}}) {\n    affected_rows\n    returning {\n      id\n      created_at\n      body\n    }\n  }\n}\n"): (typeof documents)["\nmutation hogesDeleteMutation($_eq: bigint = \"\") {\n  delete_hoges(where: {id: {_eq: $_eq}}) {\n    affected_rows\n    returning {\n      id\n      created_at\n      body\n    }\n  }\n}\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

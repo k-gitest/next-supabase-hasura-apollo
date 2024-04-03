@@ -5,10 +5,10 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../constants';
-//import TodoList from '../components/TodoList';
 import LoginForm from '../components/LoginForm';
 import AppHeader from '../components/AppHeader';
 import Footer from '../components/Footer';
+//import TodoList from '../components/TodoList';
 import TodoList from '../components/Hasura';
 
 const Home: NextPage = () => {
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
       <AppHeader isSignedIn={!!session} />
 
       <main className="mx-auto min-h-0 max-w-4xl grow text-white">
-        {session ? <TodoList /> : <LoginForm />}
+        {session ? <TodoList userId={session.user.id} /> : <LoginForm />}
       </main>
 
       <Footer />

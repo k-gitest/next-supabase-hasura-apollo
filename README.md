@@ -19,7 +19,7 @@ Next.jsとSupabaseとHasuraで構築されたTODOのwebアプリケーション
 - typescript 5.4.3
 
 ```text
-/ 
+/
 ├── __generated__
 ├── components
 ├── lib
@@ -33,6 +33,7 @@ supabase <-> Hasura <-> apollo -> next
 ```
 
 ## まとめ
+
 - graphqlのクエリはsupabase studioやapollo studioのGUIで簡単に作成できる
 - apolloクライアントはreactのcontextやproviderに似ている
 - 単純な接続だけならミドルウェア的な感じではなくclientにまとめられる
@@ -46,6 +47,3 @@ supabase <-> Hasura <-> apollo -> next
 - permissionでidやuidをeq x-hasura-user-idとすれば認証できる
 - フロントエンドのapiを使用せず、SQLも書かないでDB操作ができるのは新鮮
 - キャッシュの扱いは分かっていない事が多いが、サーバー負荷を軽減できるのは良いと思う
-
-
-

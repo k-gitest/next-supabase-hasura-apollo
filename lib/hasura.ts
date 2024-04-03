@@ -1,8 +1,6 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
-import { supabase, supabaseAnonKey } from '../constants';
+import { supabase, supabaseAnonKey, hasuraUrl } from '../constants';
 import { setContext } from '@apollo/client/link/context';
-
-const hasuraUrl = process.env.NEXT_PUBLIC_HASURA_URL!;
 
 const httpLink = createHttpLink({
   uri: `${hasuraUrl}`,
@@ -25,4 +23,4 @@ const hasuraClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export default hasuraClient
+export default hasuraClient;
